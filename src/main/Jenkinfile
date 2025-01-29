@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Preparación') {
+            steps {
+                checkout scm // Clonar el repositorio
+            }
+        }
+        stage('Construcción') {
+            steps {
+                sh 'mvn clean package' // Comando para construir el proyecto
+            }
+        }
+        stage('Pruebas') {
+            steps {
+                sh 'mvn test' // Comando para ejecutar las pruebas
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline ejecutado con éxito.'
+        }
+        failure {
+            echo 'Hubo un error en el pipeline.'
+        }
+    }
+}
