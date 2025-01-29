@@ -15,7 +15,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "src/test/resources/features", // Ruta donde están los .feature
+    features = "src/test/resources/features",
     glue = "com.platinum.ctacorriente1.steps", // Paquete donde están las definiciones de pasos
     plugin = {"json:target/cucumber-report.json"}, // Reportes
     monochrome = true // Salida más legible
